@@ -6,7 +6,7 @@ $groupId = "InsertGroupID" # Replace with the Object ID of your target group
 
 # Insert Enabled Authentication Methods
 $authMethodsToCheck = @("#microsoft.graph.microsoftAuthenticatorAuthenticationMethod", 
-                        "#microsoft.graph.smsAuthenticationMethod", 
+                        "#microsoft.graph.phoneAuthenticationMethod", 
                         "#microsoft.graph.emailAuthenticationMethod")
 
 #Optional UPN Filter
@@ -85,7 +85,7 @@ foreach ($userId in $eligibleUsers) {
     $currentEligibleUser++
 
     # Update progress on the same line for adding users to the group
-    Write-Output -NoNewline "`rAdding eligible user $currentEligibleUser/$totalEligibleUsers to the group"
+    Write-Host -NoNewline "`rAdding eligible user $currentEligibleUser/$totalEligibleUsers to the group"
 
     try {
         # Check if user is already a member of the group
